@@ -1,0 +1,53 @@
+@startuml
+'skinparam packageStyle rectangle
+left to right direction
+
+actor "Usuário da API" as User
+
+rectangle "API REST - Baozi Store" {
+    
+    package "Casos de uso entidade Cliente" {
+    	usecase "Listar todos os Clientes (GET)" as UC_ListClientes
+    	usecase "Consultar Cliente por ID (GET/{id})" as UC_GetClienteId
+        usecase "Cadastrar Cliente (POST)" as UC_CreateCliente
+        usecase "Alterar cadastro de Cliente por ID (PUT/{id})" as UC_EditCliente
+        usecase "Apagar Cliente por ID  (DELETE/{id})" as UC_DeleteCliente
+    }
+    package "Casos de Uso entidade Produto" {
+    	usecase "Listar todos os Produtos (GET)" as UC_ListProdutos
+    	usecase "Consultar Produto por ID (GET/{id})" as UC_GetProdutoId
+        usecase "Cadastrar Produto (POST)" as UC_CreateProduto
+        usecase "Alterar cadastro de Produto por ID (PUT/{id})" as UC_EditProduto
+        usecase "Apagar Produto por ID (DELETE/{id})" as UC_DeleteProduto
+    }
+    package "Casos de Uso entidade Pedido" {
+    	usecase "Listar todos os Pedidos (GET)" as UC_ListPedidos
+    	usecase "Consultar Pedido por ID (GET/{id})" as UC_GetPedidoId
+        usecase "Cadastrar Pedido (POST)" as UC_CreatePedido
+        usecase "Alterar cadastro de Pedido por ID (PUT/{id})" as UC_EditPedido
+        usecase "Apagar Pedido por ID (DELETE/{id})" as UC_DeletePedido
+        }
+}
+
+' Ligações do Ator com os Casos de Uso de Clientes
+User --- UC_ListClientes
+User --- UC_GetClienteId
+User --- UC_CreateCliente
+User --- UC_EditCliente
+User --- UC_DeleteCliente
+
+' Ligações do Ator com os Casos de Uso de Produtos
+User --- UC_ListProdutos
+User --- UC_GetProdutoId
+User --- UC_CreateProduto
+User --- UC_EditProduto
+User --- UC_DeleteProduto
+
+' Ligações do Ator com os Casos de Uso de Pedidos
+User --- UC_ListPedidos
+User --- UC_GetPedidoId
+User --- UC_CreatePedido
+User --- UC_EditPedido
+User --- UC_DeletePedido
+
+@enduml
